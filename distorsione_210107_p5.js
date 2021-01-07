@@ -72,7 +72,7 @@ function draw() {
     // Calculate input gain once to save calculations
     inputGain = pow(10.0, inputGainDecibels_ / 20.0);
     for (var i = 0; i < numSamples; ++i) {
-        print("inputGain: " + inputGain);
+        //print("inputGain: " + inputGain);
         input = channelData[i] * inputGain;
         // Apply distortion based on type
         if (distortionType_ == 1) {
@@ -119,7 +119,7 @@ function draw() {
         // channelData[i] = out;
         stroke(0, 0, 255);
         point(i, (height / 2) + out * 100);
-        print("out: " + out);
+        //print("out: " + out);
     }
     
     noStroke();
@@ -142,7 +142,7 @@ function Knob(ix, iy, idragging, irollover, iangle, ioffsetAngle) {
       var dy = mouseY - this.y;
       var mouseAngle = atan2(dy, dx);
       this.angle = mouseAngle - this.offsetAngle;
-      print("this.angle. " + this.angle);
+      //print("this.angle. " + this.angle);
     }
 
     if (this.dragging) {
@@ -177,8 +177,8 @@ function Knob(ix, iy, idragging, irollover, iangle, ioffsetAngle) {
   }
 }
 
-function mousePressed() {
-
+//function mousePressed() {
+function touchStarted() {
   // Did I click on Knob1?
   if (dist(mouseX, mouseY, knob1.x, knob1.y) < r) {
     knob1.dragging = true;
@@ -186,19 +186,25 @@ function mousePressed() {
     var dx = mouseX - knob1.x;
     var dy = mouseY - knob1.y;
     knob1.offsetAngle = atan2(dy, dx) - knob1.angle;
-    print("offsetAngle Knob1: " + knob1.offsetAngle);
+    //print("offsetAngle Knob1: " + knob1.offsetAngle);
   } else if (dist(mouseX, mouseY, knob2.x, knob2.y) < r) {
     knob2.dragging = true;
     // If so, keep track of relative location of click to corner of rectangle
     var dx = mouseX - knob2.x;
     var dy = mouseY - knob2.y;
     knob2.offsetAngle = atan2(dy, dx) - knob2.angle;
-    print("offsetAngle Knob2: " + knob2.offsetAngle);
+    //print("offsetAngle Knob2: " + knob2.offsetAngle);
   }
+  
+   // prevent default
+  return false;
 }
 
-function mouseReleased() {
+function touchEnded() {
   // Stop dragging
   knob1.dragging = false;
   knob2.dragging = false;
+  
+   // prevent default
+  return false;
 }
