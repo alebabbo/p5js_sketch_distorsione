@@ -177,8 +177,8 @@ function Knob(ix, iy, idragging, irollover, iangle, ioffsetAngle) {
   }
 }
 
-//function mousePressed() {
-function touchStarted() {
+function mousePressed() {
+//function touchStarted() {
   // Did I click on Knob1?
   if (dist(mouseX, mouseY, knob1.x, knob1.y) < r) {
     knob1.dragging = true;
@@ -196,18 +196,16 @@ function touchStarted() {
     //print("offsetAngle Knob2: " + knob2.offsetAngle);
   }
   
-   // prevent default
-  return false;
 }
 
-function touchEnded() {
+function mouseReleased() {
   // Stop dragging
   knob1.dragging = false;
   knob2.dragging = false;
   
-   // prevent default
-  return false;
 }
+
+// non so se serve!!!
 function touchMoved() {
   return false;
 }
