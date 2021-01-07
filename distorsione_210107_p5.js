@@ -208,3 +208,6 @@ function touchEnded() {
    // prevent default
   return false;
 }
+function touchMoved() {
+  return false;
+}
