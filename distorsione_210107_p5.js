@@ -36,7 +36,8 @@ function setup() {
     out = 0;
     input = 0;
     
-    createCanvas(640, 360);
+   // createCanvas(640, 360);
+    createCanvas(displayWidth, displayHeight);
     numSamples = width;
     channelData = new Array(width);
 
@@ -47,7 +48,7 @@ function setup() {
 }
 
 function draw() {
-    background(150);
+    background(255);
     
     // Knob stuff
   knob1.isdrag();
