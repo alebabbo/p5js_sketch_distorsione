@@ -47,7 +47,7 @@ function setup() {
 }
 
 function draw() {
-    background(255);
+    background(150);
     
     // Knob stuff
   knob1.isdrag();
@@ -177,8 +177,8 @@ function Knob(ix, iy, idragging, irollover, iangle, ioffsetAngle) {
   }
 }
 
-function mousePressed() {
-//function touchStarted() {
+//function mousePressed() {
+function touchStarted() {
   // Did I click on Knob1?
   if (dist(mouseX, mouseY, knob1.x, knob1.y) < r) {
     knob1.dragging = true;
@@ -196,16 +196,23 @@ function mousePressed() {
     //print("offsetAngle Knob2: " + knob2.offsetAngle);
   }
   
+   // To prevent any default behavior for this event
+  return false;
+
 }
 
-function mouseReleased() {
+//function mouseReleased() {
+function touchEnded() {
   // Stop dragging
   knob1.dragging = false;
   knob2.dragging = false;
   
 }
 
-// non so se serve!!!
-function touchMoved() {
-  return false;
-}
+/* prevents the mobile browser from processing some default
+ * touch events, like swiping left for "back" or scrolling
+ * the page.
+ */
+document.ontouchmove = function(event) {
+    event.preventDefault();
+};
