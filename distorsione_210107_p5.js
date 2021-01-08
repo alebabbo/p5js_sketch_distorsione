@@ -48,7 +48,7 @@ function setup() {
 }
 
 function draw() {
-    background(255);
+    background(150);
     
     // Knob stuff
   knob1.isdrag();
