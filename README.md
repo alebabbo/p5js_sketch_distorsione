@@ -7,4 +7,6 @@ aggiornato qui:
 https://www.youtube.com/watch?v=ZneWjyn18e8
 
 embed in pagina web https://github.com/processing/p5.js/wiki/Embedding-p5.js
+OPPURE guarda qui per NON usare iFrame
+https://www.youtube.com/watch?v=OIfEHD3KqCg
 
