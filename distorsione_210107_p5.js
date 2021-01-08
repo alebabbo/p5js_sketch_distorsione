@@ -36,8 +36,8 @@ function setup() {
     out = 0;
     input = 0;
     
-   // createCanvas(640, 360);
-    createCanvas(displayWidth, displayHeight);
+    createCanvas(640, 360);
+    //createCanvas(displayWidth, displayHeight);
     numSamples = width;
     channelData = new Array(width);
 
