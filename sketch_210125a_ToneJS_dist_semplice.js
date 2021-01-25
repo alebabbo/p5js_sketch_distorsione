@@ -26,6 +26,10 @@ var r = 40; // raggio del Knob
 
 // Create a new canvas to the browser size
 async function setup () {
+  
+  // mimics the autoplay policy
+  getAudioContext().suspend();
+  
   createCanvas(windowWidth, windowHeight);
 
   // Clear with black on setup
@@ -157,6 +161,8 @@ function keyPressed () {
 
 // Update the FX and trigger synth ON
 function mousePressed () {
+    userStartAudio();
+
   // Did I click on Knob1?
   if (dist(mouseX, mouseY, knob1.x, knob1.y) < r) {
     knob1.dragging = true;
